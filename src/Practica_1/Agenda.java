@@ -22,16 +22,10 @@ public class Agenda {
     public void setAny(int any) {
         this.any = any;
     }
+
+    public static void main(String[] args) {
+        Agenda a = new Agenda();
+
+    }
 }
 
-class Pagina {
-    int dia;
-    int mes;
-    boolean festiu;
-}
-
-class Cita {
-    int horaIni;
-    int horaFin;
-    String motiu;
-}
