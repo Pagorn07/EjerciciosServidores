@@ -8,39 +8,51 @@ public class GraficWindow extends JFrame{
     private JPanel contentPane;
     private String optionType = "";
     private String text = "";
+    private String answerColor = "";
     private boolean fillColor = false;
-    private int squareSize = 0;
+    private int width = 0;
+    private int heigth = 0;
+    private int posX = 0;
+    private int posY = 0;
 
-    public String getOptionType() {
-        return optionType;
-    }
+    //Setters---------------------------------------------------------------
 
     public void setOptionType(String optionType) {
         this.optionType = optionType;
-    }
-
-    public String getText() {
-        return text;
     }
 
     public void setText(String text) {
         this.text = text;
     }
 
-    public void setSquareSize(int squareSize) {
-        this.squareSize = squareSize;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public int getSquareSize() {
-        return squareSize;
+    public void setHeigth(int heigth) {
+        this.heigth = heigth;
     }
 
     public void setFillColor(boolean fillColor) {
         this.fillColor = fillColor;
     }
 
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    public void setAnswerColor(String answerColor) {
+        this.answerColor = answerColor;
+    }
+
+    //---------------------------------------------------------------------------------
+
     public GraficWindow() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,16 +65,21 @@ public class GraficWindow extends JFrame{
     public void paint(Graphics g) {
         super.paint(g);
 
-        g.setColor(Color.blue);
+        if(answerColor.equals("Rojo")) {
+            g.setColor(Color.red);
+        } else if(answerColor.equals("Azul")) {
+            g.setColor(Color.blue);
+        } else if(answerColor.equals("Verde")) {
+            g.setColor(Color.green);
+        }
 
         if(optionType.equals("string")) {
-            g.drawString(text, 10, 200);
-        } else if(optionType.equals("square")) {
+            g.drawString(text, posX, posY);
+        } else if(optionType.equals("square") || optionType.equals("rect")) {
             if (fillColor) {
-                g.fillRect(100, 100, squareSize, squareSize);
+                g.fillRect(posX, posY, width, heigth);
             } else {
-                g.setColor(Color.magenta);
-                g.drawRect(100, 100, squareSize, squareSize);
+                g.drawRect(posX, posY, width, heigth);
             }
         }
     }
