@@ -18,23 +18,32 @@ public class Main {
                 "F. Rectángulo\n" +
                 "G. Polígono\n\n" +
                 "H. Dibujar el historial de figuras\n" +
-                "I. Salir");
+                "I. Salir\n");
 
         System.out.print("Elige --> ");
         answer = sc.nextLine();
 
         switch (answer) {
             case "A":
-                //createText();
+                figura = new Text();
+                figura.read();
+
+                callWindow();
                 break;
             case "B":
                 //createPoint();
                 break;
             case "C":
-                //createLine();
+                figura = new Line();
+                figura.read();
+
+                callWindow();
                 break;
             case "D":
-                //createCircle();
+                figura = new Circle();
+                figura.read();
+
+                callWindow();
                 break;
             case "E":
                 figura = new Square();
@@ -43,7 +52,10 @@ public class Main {
                 callWindow();
                 break;
             case "F":
-                //createRect();
+                figura = new Rectangle();
+                figura.read();
+
+                callWindow();
                 break;
             case "G":
                 //createPoligon();

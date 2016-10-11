@@ -8,6 +8,10 @@ public class Square extends Figura {
         return longitude;
     }
 
+    public boolean isFilled() {
+        return isFilled;
+    }
+
     @Override
     void read() {
         super.read();
