@@ -1,15 +1,18 @@
 package Practica1_figuritas;
 
 import java.awt.*;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
-    public static Figura figura;
+    protected static Figura figura;
+    protected static List<Figura> figuras = new ArrayList<Figura>();
+    protected static String answer;
+
 
     static void menu() {
-        String answer;
-
         System.out.println("A. Texto\n" +
                 "B. Punto\n" +
                 "C. Linea\n" +
@@ -27,6 +30,7 @@ public class Main {
             case "A":
                 figura = new Text();
                 figura.read();
+                figuras.add(figura);
 
                 callWindow();
                 break;
@@ -36,24 +40,28 @@ public class Main {
             case "C":
                 figura = new Line();
                 figura.read();
+                figuras.add(figura);
 
                 callWindow();
                 break;
             case "D":
                 figura = new Circle();
                 figura.read();
+                figuras.add(figura);
 
                 callWindow();
                 break;
             case "E":
                 figura = new Square();
                 figura.read();
+                figuras.add(figura);
 
                 callWindow();
                 break;
             case "F":
                 figura = new Rectangle();
                 figura.read();
+                figuras.add(figura);
 
                 callWindow();
                 break;
@@ -61,7 +69,7 @@ public class Main {
                 //createPoligon();
                 break;
             case "H":
-                //showHistory();
+                callWindow();
                 break;
             case "I":
                 return;

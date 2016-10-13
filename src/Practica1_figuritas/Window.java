@@ -26,8 +26,21 @@ public class Window extends JFrame {
         else if(Main.figura.getColor().equals("azul")) g.setColor(Color.blue);
         else g.setColor(Color.black);
 
+        if(Main.answer.equals("H")) {
+            for(int i = 0; i < Main.figuras.size(); i++) {
+                Main.figura = Main.figuras.get(i);
+                elegirFigura(g);
+
+            }
+        } else {
+            elegirFigura(g);
+        }
+
+    }
+
+    void elegirFigura(Graphics g) {
         //Cuadrado
-        if(Main.figura instanceof Square) {
+        if (Main.figura instanceof Square) {
             Square square = (Square) Main.figura;
 
             if (square.isFilled()) {
@@ -37,41 +50,37 @@ public class Window extends JFrame {
             }
         }
         //Texto
-        else if(Main.figura instanceof Text) {
+        else if (Main.figura instanceof Text) {
             Text text = (Text) Main.figura;
 
             g.drawString(text.getText(), text.getPosX(), text.getPosY());
         }
         //Rectangulo
-        else if(Main.figura instanceof Rectangle) {
+        else if (Main.figura instanceof Rectangle) {
             Rectangle rect = (Rectangle) Main.figura;
 
-            if(rect.isFilled()) {
+            if (rect.isFilled()) {
                 g.fillRect(rect.getPosX(), rect.getPosY(), rect.getWidth(), rect.getHeight());
             } else {
                 g.drawRect(rect.getPosX(), rect.getPosY(), rect.getWidth(), rect.getHeight());
             }
         }
         //Linia
-        else if(Main.figura instanceof Line) {
+        else if (Main.figura instanceof Line) {
             Line line = (Line) Main.figura;
 
             g.drawLine(line.getPosX(), line.getPosY(), line.getFinX(), line.getFinY());
         }
         //Circulo
-        else if(Main.figura instanceof Circle) {
+        else if (Main.figura instanceof Circle) {
             Circle circle = (Circle) Main.figura;
 
-            if(circle.isFill()) {
+            if (circle.isFill()) {
                 g.fillArc(circle.getPosX(), circle.getPosY(), circle.getRadius(), circle.getRadius(), 0, 360);
             } else {
                 g.drawArc(circle.getPosX(), circle.getPosY(), circle.getRadius(), circle.getRadius(), 0, 360);
             }
         }
-
-
-
-
     }
 
 }
