@@ -17,8 +17,8 @@ public class Line extends Figura{
         super.read();
 
         System.out.print("Define la posición de X destino --> ");
-        sc.nextInt();
+        finX = sc.nextInt();
         System.out.print("Define la posición de Y destino --> ");
-        sc.nextInt();
+        finY = sc.nextInt();
     }
 }

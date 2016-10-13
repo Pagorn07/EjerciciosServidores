@@ -35,7 +35,11 @@ public class Main {
                 callWindow();
                 break;
             case "B":
-                //createPoint();
+                figura = new Dot();
+                figura.read();
+                figuras.add(figura);
+
+                callWindow();
                 break;
             case "C":
                 figura = new Line();

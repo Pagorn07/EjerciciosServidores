@@ -1,5 +1,7 @@
 package Practica1_figuritas;
 
+import Practica6.Docent;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -21,11 +23,6 @@ public class Window extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
 
-        if(Main.figura.getColor().equals("rojo")) g.setColor(Color.red);
-        else if(Main.figura.getColor().equals("verde")) g.setColor(Color.green);
-        else if(Main.figura.getColor().equals("azul")) g.setColor(Color.blue);
-        else g.setColor(Color.black);
-
         if(Main.answer.equals("H")) {
             for(int i = 0; i < Main.figuras.size(); i++) {
                 Main.figura = Main.figuras.get(i);
@@ -39,6 +36,11 @@ public class Window extends JFrame {
     }
 
     void elegirFigura(Graphics g) {
+        if(Main.figura.getColor().equals("rojo")) g.setColor(Color.red);
+        else if(Main.figura.getColor().equals("verde")) g.setColor(Color.green);
+        else if(Main.figura.getColor().equals("azul")) g.setColor(Color.blue);
+        else g.setColor(Color.black);
+
         //Cuadrado
         if (Main.figura instanceof Square) {
             Square square = (Square) Main.figura;
@@ -80,6 +82,12 @@ public class Window extends JFrame {
             } else {
                 g.drawArc(circle.getPosX(), circle.getPosY(), circle.getRadius(), circle.getRadius(), 0, 360);
             }
+        }
+        //Punto
+        else if (Main.figura instanceof Dot) {
+            Dot dot = (Dot) Main.figura;
+
+            g.fillArc(dot.getPosX(), dot.getPosY(), dot.getRadius(), dot.getRadius(), 0, 360);
         }
     }
 
