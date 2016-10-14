@@ -70,7 +70,11 @@ public class Main {
                 callWindow();
                 break;
             case "G":
-                //createPoligon();
+                figura = new Poligon();
+                figura.read();
+                figuras.add(figura);
+
+                callWindow();
                 break;
             case "H":
                 callWindow();

@@ -1,7 +1,5 @@
 package Practica1_figuritas;
 
-import Practica6.Docent;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -88,6 +86,16 @@ public class Window extends JFrame {
             Dot dot = (Dot) Main.figura;
 
             g.fillArc(dot.getPosX(), dot.getPosY(), dot.getRadius(), dot.getRadius(), 0, 360);
+        }
+        //Poligono
+        else if(Main.figura instanceof Poligon) {
+            Poligon polygon = (Poligon) Main.figura;
+
+            if (polygon.isFilled()) {
+                g.fillPolygon(polygon.getCoordenatesX(), polygon.getCoordenatesY(), polygon.getnPolygon());
+            } else {
+                g.drawPolygon(polygon.getCoordenatesX(), polygon.getCoordenatesY(), polygon.getnPolygon());
+            }
         }
     }
 
